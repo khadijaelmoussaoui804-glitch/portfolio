@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Moon, Sun, Mail, Github, ExternalLink, Code2, Sparkles, Send, User, MessageSquare, AtSign, CheckCircle } from 'lucide-react';
+import { Moon, Sun, Mail, Github, ExternalLink, Code2, Sparkles, Send, User, MessageSquare, AtSign, CheckCircle, FileText, Download } from 'lucide-react';
 
 export default function Portfolio() {
   const [darkMode, setDarkMode] = useState(false);
@@ -28,17 +28,10 @@ export default function Portfolio() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Créer le contenu de l'email
     const subject = `Nouveau message de ${formData.name}`;
     const body = `Nom: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
-    
-    // Ouvrir le client email
     window.location.href = `mailto:khadijaelmoussaoui804@gmail.com?subject=${subject}&body=${body}`;
-    
     setFormStatus('Message envoyé ! Votre client email va s\'ouvrir.');
-    
-    // Réinitialiser le formulaire
     setTimeout(() => {
       setFormData({ name: '', email: '', message: '' });
       setFormStatus('');
@@ -59,60 +52,27 @@ export default function Portfolio() {
       description: "Application web complète pour la gestion et consultation des formations OFPPT. Interface utilisateur optimisée pour les étudiants et formateurs.",
       tech: ["React", "HTML5", "CSS3"],
       features: ["Gestion des formations", "Interface intuitive", "Multi-utilisateurs"]
+    },
+    {
+      name: "Ramadan 2026",
+      url: "https://ramadane-2026.vercel.app",
+      description: "Site thématique Ramadan 2026 avec un design moderne et interactif. Expérience immersive célébrant le mois sacré avec des animations élégantes.",
+      tech: ["HTML5", "CSS3", "JavaScript"],
+      features: ["Design thématique", "Animations interactives", "Expérience immersive"]
     }
   ];
 
   const technicalSkills = [
-    {
-      name: "React.js",
-      description: "Bibliothèque JavaScript pour créer des interfaces utilisateur interactives et réutilisables",
-      level: 90
-    },
-    {
-      name: "JavaScript",
-      description: "Langage de programmation pour créer des applications web dynamiques",
-      level: 85
-    },
-    {
-      name: "HTML5",
-      description: "Langage de balisage pour structurer le contenu web",
-      level: 95
-    },
-    {
-      name: "CSS3",
-      description: "Langage de style pour concevoir des interfaces élégantes et responsives",
-      level: 90
-    },
-    {
-      name: "Vite",
-      description: "Outil de build ultra-rapide pour le développement frontend moderne",
-      level: 85
-    },
-    {
-      name: "Node.js",
-      description: "Environnement d'exécution JavaScript côté serveur",
-      level: 75
-    },
-    {
-      name: "Git",
-      description: "Système de contrôle de version pour gérer le code source",
-      level: 80
-    },
-    {
-      name: "Responsive Design",
-      description: "Création d'interfaces adaptatives pour tous les appareils",
-      level: 90
-    },
-    {
-      name: "UI/UX",
-      description: "Design d'expérience utilisateur intuitive et attrayante",
-      level: 85
-    },
-    {
-      name: "API Integration",
-      description: "Intégration et utilisation d'APIs REST pour connecter applications et bases de données",
-      level: 80
-    }
+    { name: "React.js", description: "Bibliothèque JavaScript pour créer des interfaces utilisateur interactives et réutilisables", level: 90 },
+    { name: "JavaScript", description: "Langage de programmation pour créer des applications web dynamiques", level: 85 },
+    { name: "HTML5", description: "Langage de balisage pour structurer le contenu web", level: 95 },
+    { name: "CSS3", description: "Langage de style pour concevoir des interfaces élégantes et responsives", level: 90 },
+    { name: "Vite", description: "Outil de build ultra-rapide pour le développement frontend moderne", level: 85 },
+    { name: "Node.js", description: "Environnement d'exécution JavaScript côté serveur", level: 75 },
+    { name: "Git", description: "Système de contrôle de version pour gérer le code source", level: 80 },
+    { name: "Responsive Design", description: "Création d'interfaces adaptatives pour tous les appareils", level: 90 },
+    { name: "UI/UX", description: "Design d'expérience utilisateur intuitive et attrayante", level: 85 },
+    { name: "API Integration", description: "Intégration et utilisation d'APIs REST pour connecter applications et bases de données", level: 80 }
   ];
 
   const behavioralSkills = [
@@ -198,25 +158,11 @@ export default function Portfolio() {
           align-items: center;
           gap: 0.5rem;
           transition: all 0.3s ease;
-          box-shadow: ${darkMode 
-            ? '0 8px 32px rgba(0, 0, 0, 0.3)' 
-            : '0 8px 32px rgba(0, 0, 0, 0.1)'};
+          box-shadow: ${darkMode ? '0 8px 32px rgba(0, 0, 0, 0.3)' : '0 8px 32px rgba(0, 0, 0, 0.1)'};
         }
 
         .theme-toggle:hover {
           transform: translateY(-2px);
-          box-shadow: ${darkMode 
-            ? '0 12px 40px rgba(0, 0, 0, 0.4)' 
-            : '0 12px 40px rgba(0, 0, 0, 0.15)'};
-        }
-
-        .theme-toggle-icon {
-          animation: rotate 0.5s ease;
-        }
-
-        @keyframes rotate {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
         }
 
         .theme-text {
@@ -251,9 +197,7 @@ export default function Portfolio() {
           font-size: clamp(3rem, 8vw, 5rem);
           font-weight: 900;
           margin-bottom: 1rem;
-          background: ${darkMode 
-            ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' 
-            : 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'};
+          background: ${darkMode ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'};
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -304,20 +248,13 @@ export default function Portfolio() {
           content: '';
           flex: 1;
           height: 2px;
-          background: ${darkMode 
-            ? 'linear-gradient(90deg, rgba(255,255,255,0.3) 0%, transparent 100%)' 
-            : 'linear-gradient(90deg, rgba(0,0,0,0.2) 0%, transparent 100%)'};
+          background: ${darkMode ? 'linear-gradient(90deg, rgba(255,255,255,0.3) 0%, transparent 100%)' : 'linear-gradient(90deg, rgba(0,0,0,0.2) 0%, transparent 100%)'};
         }
 
-        /* Projects Section - Full Width Cards */
         .project-card {
-          background: ${darkMode 
-            ? 'rgba(255, 255, 255, 0.05)' 
-            : 'rgba(255, 255, 255, 0.9)'};
+          background: ${darkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.9)'};
           backdrop-filter: blur(10px);
-          border: 2px solid ${darkMode 
-            ? 'rgba(255, 255, 255, 0.1)' 
-            : 'rgba(0, 0, 0, 0.05)'};
+          border: 2px solid ${darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)'};
           border-radius: 20px;
           padding: 3rem;
           margin-bottom: 2rem;
@@ -341,9 +278,7 @@ export default function Portfolio() {
 
         .project-card:hover {
           transform: translateY(-8px);
-          box-shadow: ${darkMode 
-            ? '0 20px 60px rgba(0, 0, 0, 0.5)' 
-            : '0 20px 60px rgba(0, 0, 0, 0.15)'};
+          box-shadow: ${darkMode ? '0 20px 60px rgba(0, 0, 0, 0.5)' : '0 20px 60px rgba(0, 0, 0, 0.15)'};
         }
 
         .project-card:hover::before {
@@ -402,9 +337,7 @@ export default function Portfolio() {
         }
 
         .detail-group {
-          background: ${darkMode 
-            ? 'rgba(255, 255, 255, 0.03)' 
-            : 'rgba(0, 0, 0, 0.02)'};
+          background: ${darkMode ? 'rgba(255, 255, 255, 0.03)' : 'rgba(0, 0, 0, 0.02)'};
           padding: 1.5rem;
           border-radius: 15px;
         }
@@ -425,9 +358,7 @@ export default function Portfolio() {
         }
 
         .tech-tag {
-          background: ${darkMode 
-            ? 'rgba(255, 255, 255, 0.1)' 
-            : 'rgba(0, 0, 0, 0.05)'};
+          background: ${darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)'};
           padding: 0.5rem 1rem;
           border-radius: 20px;
           font-size: 0.85rem;
@@ -454,7 +385,6 @@ export default function Portfolio() {
           font-size: 1.2rem;
         }
 
-        /* Skills Section */
         .skills-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -463,13 +393,9 @@ export default function Portfolio() {
         }
 
         .skill-category {
-          background: ${darkMode 
-            ? 'rgba(255, 255, 255, 0.05)' 
-            : 'rgba(255, 255, 255, 0.9)'};
+          background: ${darkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.9)'};
           backdrop-filter: blur(10px);
-          border: 2px solid ${darkMode 
-            ? 'rgba(255, 255, 255, 0.1)' 
-            : 'rgba(0, 0, 0, 0.05)'};
+          border: 2px solid ${darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)'};
           border-radius: 20px;
           padding: 2rem;
         }
@@ -479,9 +405,7 @@ export default function Portfolio() {
           font-size: 1.5rem;
           font-weight: 700;
           margin-bottom: 1.5rem;
-          background: ${darkMode 
-            ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' 
-            : 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'};
+          background: ${darkMode ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'};
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -518,18 +442,14 @@ export default function Portfolio() {
         .skill-bar {
           width: 100%;
           height: 8px;
-          background: ${darkMode 
-            ? 'rgba(255, 255, 255, 0.1)' 
-            : 'rgba(0, 0, 0, 0.1)'};
+          background: ${darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'};
           border-radius: 10px;
           overflow: hidden;
         }
 
         .skill-progress {
           height: 100%;
-          background: ${darkMode 
-            ? 'linear-gradient(90deg, #667eea 0%, #764ba2 100%)' 
-            : 'linear-gradient(90deg, #f093fb 0%, #f5576c 100%)'};
+          background: ${darkMode ? 'linear-gradient(90deg, #667eea 0%, #764ba2 100%)' : 'linear-gradient(90deg, #f093fb 0%, #f5576c 100%)'};
           border-radius: 10px;
           transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
           animation: slideIn 1.5s ease-out;
@@ -546,13 +466,9 @@ export default function Portfolio() {
         }
 
         .behavioral-skill {
-          background: ${darkMode 
-            ? 'rgba(255, 255, 255, 0.05)' 
-            : 'rgba(255, 255, 255, 0.9)'};
+          background: ${darkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.9)'};
           backdrop-filter: blur(10px);
-          border: 2px solid ${darkMode 
-            ? 'rgba(255, 255, 255, 0.1)' 
-            : 'rgba(0, 0, 0, 0.05)'};
+          border: 2px solid ${darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)'};
           padding: 1.25rem;
           border-radius: 15px;
           font-weight: 600;
@@ -571,22 +487,15 @@ export default function Portfolio() {
 
         .behavioral-skill:hover {
           transform: translateY(-4px);
-          box-shadow: ${darkMode 
-            ? '0 10px 30px rgba(102, 126, 234, 0.3)' 
-            : '0 10px 30px rgba(245, 87, 108, 0.2)'};
+          box-shadow: ${darkMode ? '0 10px 30px rgba(102, 126, 234, 0.3)' : '0 10px 30px rgba(245, 87, 108, 0.2)'};
         }
 
-        /* Contact Form */
         .contact-form {
           max-width: 800px;
           margin: 2rem auto;
-          background: ${darkMode 
-            ? 'rgba(255, 255, 255, 0.05)' 
-            : 'rgba(255, 255, 255, 0.9)'};
+          background: ${darkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(255, 255, 255, 0.9)'};
           backdrop-filter: blur(10px);
-          border: 2px solid ${darkMode 
-            ? 'rgba(255, 255, 255, 0.1)' 
-            : 'rgba(0, 0, 0, 0.05)'};
+          border: 2px solid ${darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)'};
           border-radius: 20px;
           padding: 3rem;
         }
@@ -608,12 +517,8 @@ export default function Portfolio() {
         .form-textarea {
           width: 100%;
           padding: 1rem 1.5rem;
-          background: ${darkMode 
-            ? 'rgba(255, 255, 255, 0.05)' 
-            : 'rgba(0, 0, 0, 0.02)'};
-          border: 2px solid ${darkMode 
-            ? 'rgba(255, 255, 255, 0.1)' 
-            : 'rgba(0, 0, 0, 0.1)'};
+          background: ${darkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.02)'};
+          border: 2px solid ${darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'};
           border-radius: 15px;
           font-family: 'Space Mono', monospace;
           font-size: 1rem;
@@ -625,9 +530,7 @@ export default function Portfolio() {
         .form-textarea:focus {
           outline: none;
           border-color: ${darkMode ? '#a78bfa' : '#f5576c'};
-          box-shadow: 0 0 0 3px ${darkMode 
-            ? 'rgba(167, 139, 250, 0.1)' 
-            : 'rgba(245, 87, 108, 0.1)'};
+          box-shadow: 0 0 0 3px ${darkMode ? 'rgba(167, 139, 250, 0.1)' : 'rgba(245, 87, 108, 0.1)'};
         }
 
         .form-textarea {
@@ -638,9 +541,7 @@ export default function Portfolio() {
         .submit-btn {
           width: 100%;
           padding: 1.25rem 2rem;
-          background: ${darkMode 
-            ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' 
-            : 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'};
+          background: ${darkMode ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'};
           color: white;
           border: none;
           border-radius: 50px;
@@ -653,24 +554,17 @@ export default function Portfolio() {
           justify-content: center;
           gap: 0.75rem;
           transition: all 0.3s ease;
-          box-shadow: ${darkMode 
-            ? '0 10px 30px rgba(102, 126, 234, 0.3)' 
-            : '0 10px 30px rgba(245, 87, 108, 0.3)'};
+          box-shadow: ${darkMode ? '0 10px 30px rgba(102, 126, 234, 0.3)' : '0 10px 30px rgba(245, 87, 108, 0.3)'};
         }
 
         .submit-btn:hover {
           transform: translateY(-4px);
-          box-shadow: ${darkMode 
-            ? '0 15px 40px rgba(102, 126, 234, 0.4)' 
-            : '0 15px 40px rgba(245, 87, 108, 0.4)'};
         }
 
         .form-status {
           margin-top: 1rem;
           padding: 1rem;
-          background: ${darkMode 
-            ? 'rgba(167, 139, 250, 0.2)' 
-            : 'rgba(76, 175, 80, 0.2)'};
+          background: ${darkMode ? 'rgba(167, 139, 250, 0.2)' : 'rgba(76, 175, 80, 0.2)'};
           border-radius: 10px;
           text-align: center;
           font-weight: 600;
@@ -693,25 +587,18 @@ export default function Portfolio() {
           align-items: center;
           gap: 0.75rem;
           padding: 1rem 2rem;
-          background: ${darkMode 
-            ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' 
-            : 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'};
+          background: ${darkMode ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' : 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'};
           color: white;
           text-decoration: none;
           border-radius: 50px;
           font-weight: 700;
           font-size: 1rem;
           transition: all 0.3s ease;
-          box-shadow: ${darkMode 
-            ? '0 10px 30px rgba(102, 126, 234, 0.3)' 
-            : '0 10px 30px rgba(245, 87, 108, 0.3)'};
+          box-shadow: ${darkMode ? '0 10px 30px rgba(102, 126, 234, 0.3)' : '0 10px 30px rgba(245, 87, 108, 0.3)'};
         }
 
         .contact-btn:hover {
           transform: translateY(-4px);
-          box-shadow: ${darkMode 
-            ? '0 15px 40px rgba(102, 126, 234, 0.4)' 
-            : '0 15px 40px rgba(245, 87, 108, 0.4)'};
         }
 
         .footer {
@@ -722,35 +609,13 @@ export default function Portfolio() {
         }
 
         @media (max-width: 768px) {
-          .theme-toggle {
-            top: 1rem;
-            right: 1rem;
-            padding: 0.5rem 1rem;
-          }
-
-          .header {
-            padding: 4rem 1rem 3rem;
-          }
-
-          .project-card {
-            padding: 2rem;
-          }
-
-          .project-details {
-            grid-template-columns: 1fr;
-          }
-
-          .contact-form {
-            padding: 2rem;
-          }
-
-          .skills-grid {
-            grid-template-columns: 1fr;
-          }
-
-          .behavioral-skills {
-            grid-template-columns: 1fr;
-          }
+          .theme-toggle { top: 1rem; right: 1rem; padding: 0.5rem 1rem; }
+          .header { padding: 4rem 1rem 3rem; }
+          .project-card { padding: 2rem; }
+          .project-details { grid-template-columns: 1fr; }
+          .contact-form { padding: 2rem; }
+          .skills-grid { grid-template-columns: 1fr; }
+          .behavioral-skills { grid-template-columns: 1fr; }
         }
       `}</style>
 
@@ -764,6 +629,8 @@ export default function Portfolio() {
       </button>
 
       <div className="container">
+
+        {/* Header */}
         <header className="header">
           <Sparkles size={40} className="sparkle-icon" />
           <h1 className="name">Khadija El Moussaoui</h1>
@@ -772,6 +639,44 @@ export default function Portfolio() {
             <span>Benguerir, Maroc</span>
           </div>
         </header>
+
+        {/* CV Section */}
+        <section className="section">
+          <h2 className="section-title">
+            <FileText size={36} />
+            Mon CV
+          </h2>
+          <div className="project-card">
+            <div className="project-header">
+              <h3 className="project-name">
+                <FileText size={24} />
+                Khadija El Moussaoui
+              </h3>
+              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <a
+                  href="/cv.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-link"
+                >
+                  <ExternalLink size={18} />
+                  Voir
+                </a>
+                <a
+                  href="/cv.pdf"
+                  download="CV_Khadija_El_Moussaoui.pdf"
+                  className="project-link"
+                >
+                  <Download size={18} />
+                  Télécharger
+                </a>
+              </div>
+            </div>
+            <p className="project-description">
+              Mon CV complet — formations, compétences techniques et projets réalisés. Disponible pour un stage, une poste en développement web full stack.
+            </p>
+          </div>
+        </section>
 
         {/* Projects Section */}
         <section className="section">
@@ -786,9 +691,9 @@ export default function Portfolio() {
                   {project.name}
                   <ExternalLink size={24} />
                 </h3>
-                <a 
-                  href={project.url} 
-                  target="_blank" 
+                <a
+                  href={project.url}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="project-link"
                 >
@@ -822,7 +727,6 @@ export default function Portfolio() {
         {/* Skills Section */}
         <section className="section">
           <h2 className="section-title">Compétences</h2>
-          
           <div className="skills-grid">
             <div className="skill-category">
               <h3 className="skill-category-title">Compétences Techniques</h3>
@@ -834,15 +738,14 @@ export default function Portfolio() {
                   </div>
                   <p className="skill-description">{skill.description}</p>
                   <div className="skill-bar">
-                    <div 
-                      className="skill-progress" 
+                    <div
+                      className="skill-progress"
                       style={{ width: `${skill.level}%` }}
                     ></div>
                   </div>
                 </div>
               ))}
             </div>
-
             <div className="skill-category">
               <h3 className="skill-category-title">Compétences Comportementales</h3>
               <div className="behavioral-skills">
@@ -865,7 +768,6 @@ export default function Portfolio() {
           <p style={{ fontSize: '1.1rem', textAlign: 'center', maxWidth: '700px', margin: '0 auto 2rem', opacity: 0.8 }}>
             Vous avez un projet en tête ou souhaitez discuter d'une opportunité ? N'hésitez pas à me contacter !
           </p>
-
           <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label className="form-label" htmlFor="name">
@@ -883,7 +785,6 @@ export default function Portfolio() {
                 placeholder="Ex: Ahmed Benali"
               />
             </div>
-
             <div className="form-group">
               <label className="form-label" htmlFor="email">
                 <AtSign size={16} style={{ display: 'inline', marginRight: '0.5rem' }} />
@@ -900,7 +801,6 @@ export default function Portfolio() {
                 placeholder="exemple@email.com"
               />
             </div>
-
             <div className="form-group">
               <label className="form-label" htmlFor="message">
                 <MessageSquare size={16} style={{ display: 'inline', marginRight: '0.5rem' }} />
@@ -916,12 +816,10 @@ export default function Portfolio() {
                 placeholder="Décrivez votre projet ou votre demande..."
               ></textarea>
             </div>
-
             <button type="submit" className="submit-btn">
               <Send size={20} />
               Envoyer le message
             </button>
-
             {formStatus && (
               <div className="form-status">
                 <CheckCircle size={20} />
@@ -929,18 +827,14 @@ export default function Portfolio() {
               </div>
             )}
           </form>
-
           <div className="contact-buttons">
-            <a 
-              href="mailto:khadijaelmoussaoui804@gmail.com" 
-              className="contact-btn"
-            >
+            <a href="mailto:khadijaelmoussaoui804@gmail.com" className="contact-btn">
               <Mail size={20} />
               Email Direct
             </a>
-            <a 
-              href="https://github.com/khadijaelmoussaoui804-glitch" 
-              target="_blank" 
+            <a
+              href="https://github.com/khadijaelmoussaoui804-glitch"
+              target="_blank"
               rel="noopener noreferrer"
               className="contact-btn"
             >
@@ -953,6 +847,7 @@ export default function Portfolio() {
         <footer className="footer">
           <p>© 2024 Khadija El Moussaoui • Développé avec React & Vite</p>
         </footer>
+
       </div>
     </div>
   );
